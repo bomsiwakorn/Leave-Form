@@ -14,10 +14,10 @@
           class="mr-1"
           color="#f3713a"
         >
-          <v-tab @click.prevent="$router.push('/')">
+          <v-tab @click.prevent="$router.push({ name: 'Home' })">
             HOME
           </v-tab>
-          <v-tab @click.prevent="$router.push('/about')">
+          <v-tab @click.prevent="$router.push({ name: 'About' })">
             About
           </v-tab>
         </v-tabs>
