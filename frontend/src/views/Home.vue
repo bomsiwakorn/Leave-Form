@@ -17,7 +17,7 @@
                     </v-list-item-content>
                 </v-list-item>
 
-                <v-col cols="12">
+                <v-col class="py-1" cols="12">
                   <v-text-field
                       v-model="allData.firstname"
                       :rules="nameRules"
@@ -29,7 +29,7 @@
                   ></v-text-field>
                 </v-col>
 
-                <v-col cols="12">
+                <v-col class="py-1" cols="12">
                     <v-text-field
                         v-model="allData.lastname"
                         :rules="nameRules"
@@ -41,7 +41,7 @@
                     ></v-text-field>
                 </v-col>
 
-                <v-col cols="12">
+                <v-col class="py-1" cols="12">
                     <v-select
                         :items="this.leavetype"
                         v-model="allData.leavetype"
@@ -51,6 +51,17 @@
                         clearable
                         color="#f3713a"
                     ></v-select>
+                </v-col>
+                <v-col class="py-1" cols="12">
+                  <v-textarea
+                    v-model="allData.reason"
+                    label="Reason for Leave"
+                    required
+                    clearable
+                    rows="2"
+                    class="py-1"
+                    color="#f3713a"
+                  ></v-textarea>
                 </v-col>
 
                 <v-row justify="space-around">
@@ -65,15 +76,15 @@
 
                 </v-row>
 
-                <v-card-text>
-                    โปรดกรอกข้อมูลของคุณให้ถูกต้องและครบทุกช่อง
+                <v-card-text class="message">
+                    *โปรดกรอกข้อมูลของคุณให้ถูกต้องและครบทุกช่อง
                 </v-card-text>
 
                 <v-card-actions class="justify-end">
-                    <v-btn dark color="#f3713a" type="submit">
+                    <v-btn dark color="#f3713a" type="submit" class="mr-4">
                         Submit
                     </v-btn>
-                    <v-btn dark color="#1D2553" @click="reset">
+                    <v-btn dark color="#1D2553" @click.prevent="reset">
                         reset
                     </v-btn>
                 </v-card-actions>
@@ -97,6 +108,7 @@ export default {
                 firstname: '',
                 lastname: '',
                 leavetype: '',
+                reason: '',
                 startdate: '',
                 enddate: ''
             }
@@ -110,7 +122,8 @@ export default {
             this.allData = {
                 firstname: '',
                 lastname: '',
-                leavetype: ''
+                leavetype: '',
+                reason: '',
             }
         }
     },
@@ -129,5 +142,7 @@ export default {
   .group {
     margin-bottom: 1.5rem;
   }
-
+  .message {
+    color: #e73d3d;
+  }
 </style>
